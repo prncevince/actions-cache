@@ -29,13 +29,14 @@ async function run(): Promise<void> {
             const state = utils.getCacheState();
 
             let primaryKey = "";
-            const reeval = core.getBooleanInput(Inputs.Reeval);
+            const reeval = utils.getInputAsBoolean(Inputs.Reeval);
             if (!reeval) {
                 // Inputs are reevaluted before the post action, so we want the original key used for restore
                 primaryKey = core.getState(State.CachePrimaryKey);
             } else {
-                // choose to reevaluate primary key
+                // choose to reevaluate primary key - resave state to correctly test cache hit on next run
                 primaryKey = core.getInput(Inputs.Key, { required: true });
+                core.saveState(State.CachePrimaryKey, primaryKey);
             }
             if (!primaryKey) {
                 utils.logWarning(`Error retrieving key from state.`);
