@@ -97,6 +97,7 @@ See [Examples](examples.md) for a list of `actions/cache` implementations for us
 - [Python - pip](./examples.md#python---pip)
 - [Python - pipenv](./examples.md#python---pipenv)
 - [R - renv](./examples.md#r---renv)
+- [R Markdown - knitr cache](./examples.md#r-markdown---knitr-cache)
 - [Ruby - Bundler](./examples.md#ruby---bundler)
 - [Rust - Cargo](./examples.md#rust---cargo)
 - [Scala - SBT](./examples.md#scala---sbt)
